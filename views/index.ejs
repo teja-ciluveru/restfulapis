@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quora</title>
+    <style>
+        .outdiv{
+            background-color: pink;
+            border: solid black 1px;
+            margin-top: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+<h1>Quora</h1>
+
+ <%for(post of posts){ %>
+      <div class="outdiv">
+        <h2>id:<%= post.id%></h2>
+        <h2>@<%= post.username %></h2>
+        <div>
+            <p>post:<%= post.content %></p>
+            
+             
+             
+        </div>
+        <a href="http://localhost:8080/posts/<%=post.id%>">show</a>
+        <a href="http://localhost:8080/posts/<%=post.id%>/edit">edit</a>
+        <form method="post"  action="/posts/<%=post.id%>?__method=DELETE">
+            <button type="submit" >delete this post</button>
+        </form>
+        
+      </div>
+ <%}%>
+
+ <a href="http://localhost:8080/posts/new"> create new post</a>
+ 
+ 
+
+    
+</body>
+</html>
